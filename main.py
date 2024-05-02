@@ -11,6 +11,9 @@ app.layout = html.Div(
     style={
         "textAlign": "center",
         "fontFamily": "Courier New",
+        "display": "flex",
+        "flexWrap": "wrap",
+        "justifyContent": "center",
     },
     children=[
         html.Div(
@@ -24,6 +27,7 @@ app.layout = html.Div(
                 ),
                 get_bar_chart(),
             ],
+            style={"width": "33%"},
         ),
         html.Div(
             children=[
@@ -36,6 +40,7 @@ app.layout = html.Div(
                 ),
                 get_pizza_chart(),
             ],
+            style={"width": "33%"},
         ),
         html.Div(
             children=[
@@ -47,7 +52,8 @@ app.layout = html.Div(
                     },
                 ),
                 get_scatter_plot(),
-            ]
+            ],
+            style={"width": "33%"},
         ),
     ],
 )
