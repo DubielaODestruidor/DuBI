@@ -1,3 +1,3 @@
 Dashboard em python 3.11 utilizando a biblioteca Dash.
-![data](https://github.com/DubielaODestruidor/PyDash/assets/81489397/30eb1fc6-7f2c-4853-856e-867cb0c62999)
-![Dash_page-0001](https://github.com/DubielaODestruidor/PyDash/assets/81489397/85296d16-1774-4e1a-9275-6f76fe9174f4)
+![codye](https://github.com/DubielaODestruidor/PyDash/assets/81489397/c234b77e-5b4c-4fc4-a145-15e05d357fa2)
+![Dash_page-0001](https://github.com/DubielaODestruidor/PyDash/assets/81489397/7e910587-23d2-4168-950e-1fb54210fa60)
