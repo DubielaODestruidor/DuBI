@@ -10,11 +10,11 @@ def get_scatter_plot() -> dcc.Graph:
         figure={
             "data": [
                 {
-                    "x": fruit_df["Quantity"],
-                    "y": fruit_df["Price"],
                     "type": "scatter",
                     "mode": "markers",
                     "name": "Price",
+                    "x": fruit_df["Quantity"],
+                    "y": fruit_df["Price"],
                     "marker": {
                         "color": fruit_df["Price"],
                         "colorscale": "Viridis",
@@ -23,7 +23,7 @@ def get_scatter_plot() -> dcc.Graph:
             ],
             "layout": {
                 "title": {
-                    "text": "Fruit Prices",
+                    "text": "Fruit Prices by Quantity",
                     "font": {"size": 16},
                 },
                 "xaxis": {

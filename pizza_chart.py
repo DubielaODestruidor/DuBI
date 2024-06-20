@@ -10,15 +10,15 @@ def get_pizza_chart() -> dcc.Graph:
         figure={
             "data": [
                 {
-                    "values": fruit_df["Price"],
-                    "labels": fruit_df["Fruit"],
                     "type": "pie",
                     "name": "Price",
+                    "values": fruit_df["Price"],
+                    "labels": fruit_df["Fruit"],
                 },
             ],
             "layout": {
                 "title": {
-                    "text": "Fruit Prices",
+                    "text": "Fruit Percentage",
                     "font": {"size": 16},
                 },
             },

@@ -10,10 +10,10 @@ def get_bar_chart() -> dcc.Graph:
         figure={
             "data": [
                 {
-                    "x": fruit_df["Fruit"],
-                    "y": fruit_df["Price"],
                     "type": "bar",
                     "name": "Price",
+                    "x": fruit_df["Fruit"],
+                    "y": fruit_df["Price"],
                     "marker": {
                         "color": fruit_df["Price"],
                         "colorscale": "Rainbow",

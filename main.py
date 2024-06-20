@@ -2,6 +2,7 @@ from dash import Dash, html
 from bar_chart import get_bar_chart
 from pizza_chart import get_pizza_chart
 from scatter_plot import get_scatter_plot
+from tree_graph import get_tree_graph
 
 # Começando o processo de criar o dash
 app = Dash(__name__)
@@ -27,7 +28,7 @@ app.layout = html.Div(
                 ),
                 get_bar_chart(),
             ],
-            style={"width": "33%"},
+            style={"width": "50%"},
         ),
         html.Div(
             children=[
@@ -40,7 +41,20 @@ app.layout = html.Div(
                 ),
                 get_pizza_chart(),
             ],
-            style={"width": "33%"},
+            style={"width": "50%"},
+        ),
+        html.Div(
+            children=[
+                html.Div(
+                    children="Tree graph: ",
+                    style={
+                        "fontSize": "22px",
+                        "color": "#FF4500",
+                    },
+                ),
+                get_tree_graph(),
+            ],
+            style={"width": "50%"},
         ),
         html.Div(
             children=[
@@ -53,7 +67,7 @@ app.layout = html.Div(
                 ),
                 get_scatter_plot(),
             ],
-            style={"width": "33%"},
+            style={"width": "50%"},
         ),
     ],
 )
