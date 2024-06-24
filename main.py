@@ -3,6 +3,7 @@ from bar_chart import get_bar_chart
 from pizza_chart import get_pizza_chart
 from scatter_plot import get_scatter_plot
 from tree_graph import get_tree_graph
+from filter import create_filter
 
 # Começando o processo de criar o dash
 app = Dash(__name__)
@@ -15,8 +16,14 @@ app.layout = html.Div(
         "display": "flex",
         "flexWrap": "wrap",
         "justifyContent": "center",
+        "alignItems": "center",
+        "backgroundColor": "#f0f0f0",
+        "padding": "10px",
+        "height": "100vh",
+        "width": "100%",
     },
     children=[
+        create_filter(app),
         html.Div(
             children=[
                 html.Div(
@@ -28,7 +35,10 @@ app.layout = html.Div(
                 ),
                 get_bar_chart(),
             ],
-            style={"width": "50%"},
+            style={
+                "width": "40%",
+                "marginRight": "10px",
+                },
         ),
         html.Div(
             children=[
@@ -41,7 +51,10 @@ app.layout = html.Div(
                 ),
                 get_pizza_chart(),
             ],
-            style={"width": "50%"},
+            style={
+                "width": "40%",
+                "marginLeft": "10px",
+                },
         ),
         html.Div(
             children=[
@@ -54,7 +67,10 @@ app.layout = html.Div(
                 ),
                 get_tree_graph(),
             ],
-            style={"width": "50%"},
+            style={
+                "width": "40%",
+                "marginRight": "10px",
+                },
         ),
         html.Div(
             children=[
@@ -67,7 +83,10 @@ app.layout = html.Div(
                 ),
                 get_scatter_plot(),
             ],
-            style={"width": "50%"},
+            style={
+                "width": "40%",
+                "marginLeft": "10px",
+                },
         ),
     ],
 )
