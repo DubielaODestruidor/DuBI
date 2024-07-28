@@ -1,10 +1,6 @@
-from data import get_fruit_df
 from dash import dcc
 
-fruit_df = get_fruit_df()
-
-
-def get_pizza_chart() -> dcc.Graph:
+def get_pizza_chart(dataframe) -> dcc.Graph:
     return dcc.Graph(
         id="pie-chart",
         figure={
@@ -12,8 +8,8 @@ def get_pizza_chart() -> dcc.Graph:
                 {
                     "type": "pie",
                     "name": "Price",
-                    "values": fruit_df["Price"],
-                    "labels": fruit_df["Fruit"],
+                    "values": dataframe.iloc[:, 3],
+                    "labels": dataframe.iloc[:, 0],
                 },
             ],
             "layout": {

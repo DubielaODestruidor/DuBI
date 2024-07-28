@@ -1,12 +1,13 @@
-from dash import Dash, html
+from dash import Dash, html, dcc, Input, Output
+from data import get_fruit_df
 from bar_chart import get_bar_chart
 from pizza_chart import get_pizza_chart
 from scatter_plot import get_scatter_plot
 from tree_graph import get_tree_graph
-from filter import create_filter
 
 # Começando o processo de criar o dash
 app = Dash(__name__)
+fruit_df = get_fruit_df()
 
 # Estilização
 app.layout = html.Div(
@@ -22,15 +23,30 @@ app.layout = html.Div(
         "height": "100vh",
         "width": "100%",
     },
+    # Filhos do layout
     children=[
-        create_filter(app),
+        # Dropdown
+        html.Div(
+            children=[
+                dcc.Dropdown(
+                    id="fruit-dropdown",
+                    options=[
+                        {"label": fruit, "value": fruit}
+                        for fruit in fruit_df["Fruit"].unique()
+                    ],
+                ),
+            ],
+            style={
+                "width": "80%",
+                "marginBottom": "20px",
+            },
+        ),
+        # Gráfico de barras
         html.Div(
             children=[
                 html.Div(
-                    children="Bar chart:",
                     style={
-                        "fontSize": "22px",
-                        "color": "#00FFFF",
+                        "marginTop": "10px",
                     },
                 ),
                 get_bar_chart(),
@@ -40,29 +56,27 @@ app.layout = html.Div(
                 "marginRight": "10px",
                 },
         ),
+        # Gráfico de pizza
         html.Div(
             children=[
                 html.Div(
-                    children="Pie chart:",
                     style={
-                        "fontSize": "22px",
-                        "color": "#006400",
+                        "marginTop": "10px",
                     },
                 ),
-                get_pizza_chart(),
+                get_pizza_chart(dataframe=fruit_df),
             ],
             style={
                 "width": "40%",
                 "marginLeft": "10px",
                 },
         ),
+        # Gráfico de árvore
         html.Div(
             children=[
                 html.Div(
-                    children="Tree graph: ",
                     style={
-                        "fontSize": "22px",
-                        "color": "#FF4500",
+                        "marginTop": "20px",
                     },
                 ),
                 get_tree_graph(),
@@ -72,13 +86,12 @@ app.layout = html.Div(
                 "marginRight": "10px",
                 },
         ),
+        # Gráfico de dispersão
         html.Div(
             children=[
                 html.Div(
-                    children="Scatter plot: ",
                     style={
-                        "fontSize": "22px",
-                        "color": "#817400",
+                        "marginTop": "20px",
                     },
                 ),
                 get_scatter_plot(),
@@ -91,5 +104,26 @@ app.layout = html.Div(
     ],
 )
 
+@app.callback(
+        Output("bar-chart", "figure"),
+        Output("pizza-chart", "figure"),
+        Output("scatter-plot", "figure"),
+        Output("tree-graph", "figure"),
+    [
+        Input("fruit-dropdown", "value"),
+    ],
+)
+
+def update_charts(fruit):
+    filtered_df = fruit_df[fruit_df["Fruit"] == fruit]
+    
+    return (
+        get_bar_chart(filtered_df),
+        get_pizza_chart(filtered_df),
+        get_scatter_plot(filtered_df),
+        get_tree_graph(filtered_df),
+    )
+
+# Rodando o Dash
 if __name__ == "__main__":
     app.run_server(debug=True)

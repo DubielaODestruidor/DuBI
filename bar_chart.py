@@ -1,10 +1,6 @@
-from data import get_fruit_df
 from dash import dcc
 
-fruit_df = get_fruit_df()
-
-
-def get_bar_chart() -> dcc.Graph:
+def get_bar_chart(dataframe) -> dcc.Graph:
     return dcc.Graph(
         id="bar-chart",
         figure={
@@ -12,10 +8,10 @@ def get_bar_chart() -> dcc.Graph:
                 {
                     "type": "bar",
                     "name": "Price",
-                    "x": fruit_df["Fruit"],
-                    "y": fruit_df["Price"],
+                    "x": dataframe["Fruit"],
+                    "y": dataframe["Price"],
                     "marker": {
-                        "color": fruit_df["Price"],
+                        "color": dataframe["Price"],
                         "colorscale": "Rainbow",
                     },
                 },
