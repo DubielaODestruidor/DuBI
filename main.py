@@ -6,6 +6,18 @@ from tree_graph import get_tree_graph_app
 from scatter_plot import get_scatter_plot_app
 
 
+def center_text_with_dashes(text, total_width):
+    text_length = len(text)
+    if text_length >= total_width - 2:
+        return f"-{text}-"
+
+    total_spaces = total_width - text_length - 2
+    left_spaces = total_spaces // 2
+    right_spaces = total_spaces - left_spaces
+
+    return f"-{' ' * left_spaces}{text}{' ' * right_spaces}-"
+
+
 def menu():
     options = [
         "Gráfico de barras",
@@ -16,23 +28,28 @@ def menu():
         "Sair",
     ]
 
+    max_width = 25
+    centered_options = [
+        center_text_with_dashes(option, max_width) for option in options
+    ]
+
     choice = inquirer.select(
-        message="Escolha uma opção",
-        choices=options,
-        default="Gráfico de barras",
+        message="Escolha uma opção ('Ctrl'+'C' para sair): ",
+        choices=centered_options,
+        default=centered_options[0],
     ).execute()
 
-    if choice == "Gráfico de barras":
+    if "Gráfico de barras" in choice:
         get_bar_chart_app(dataframe=get_fruit_df())
-    elif choice == "Gráfico de pizza":
+    elif "Gráfico de pizza" in choice:
         get_pizza_chart_app(dataframe=get_fruit_df())
-    elif choice == "Gráfico de árvores":
+    elif "Gráfico de árvores" in choice:
         get_tree_graph_app(dataframe=get_fruit_df())
-    elif choice == "Gráfico de dispersão":
+    elif "Gráfico de dispersão" in choice:
         get_scatter_plot_app(dataframe=get_fruit_df())
-    elif choice == "Dashboard":
+    elif "Dashboard" in choice:
         print("TODO: Implementar dashboard")
-    elif choice == "Sair":
+    elif "Sair" in choice:
         print("Até mais!")
         exit()
 

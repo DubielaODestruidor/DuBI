@@ -1,4 +1,5 @@
 from dash import dcc, html, Dash
+import webbrowser
 
 
 def get_tree_graph(dataframe) -> dcc.Graph:
@@ -36,7 +37,9 @@ def get_tree_graph_app(dataframe):
         ],
     )
 
-    app.run_server(debug=True)
+    url = "http://127.0.0.1:8050/"
+    webbrowser.open(url)
+    app.run_server(debug=True, use_reloader=False)
 
 
 if __name__ == "__main__":
