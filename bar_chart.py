@@ -1,4 +1,5 @@
-from dash import dcc
+from dash import dcc, html, Dash
+
 
 def get_bar_chart(dataframe) -> dcc.Graph:
     return dcc.Graph(
@@ -38,3 +39,22 @@ def get_bar_chart(dataframe) -> dcc.Graph:
             },
         },
     )
+
+
+def get_bar_chart_app(dataframe):
+    app = Dash(__name__)
+
+    app.layout = html.Div(
+        children=[
+            get_bar_chart(dataframe),
+        ],
+    )
+
+    app.run_server(debug=True)
+
+
+if __name__ == "__main__":
+    from data import get_fruit_df
+
+    dataframe = get_fruit_df()
+    get_bar_chart_app(dataframe)

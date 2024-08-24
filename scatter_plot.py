@@ -1,10 +1,7 @@
-from data import get_fruit_df
-from dash import dcc
-
-fruit_df = get_fruit_df()
+from dash import dcc, html, Dash
 
 
-def get_scatter_plot() -> dcc.Graph:
+def get_scatter_plot(dataframe) -> dcc.Graph:
     return dcc.Graph(
         id="scatter-plot",
         figure={
@@ -13,10 +10,10 @@ def get_scatter_plot() -> dcc.Graph:
                     "type": "scatter",
                     "mode": "markers",
                     "name": "Price",
-                    "x": fruit_df["Quantity"],
-                    "y": fruit_df["Price"],
+                    "x": dataframe["Quantity"],
+                    "y": dataframe["Price"],
                     "marker": {
-                        "color": fruit_df["Price"],
+                        "color": dataframe["Price"],
                         "colorscale": "Viridis",
                     },
                 },
@@ -43,3 +40,22 @@ def get_scatter_plot() -> dcc.Graph:
             },
         },
     )
+
+
+def get_scatter_plot_app(dataframe):
+    app = Dash(__name__)
+
+    app.layout = html.Div(
+        children=[
+            get_scatter_plot(dataframe),
+        ],
+    )
+
+    app.run_server(debug=True)
+
+
+if __name__ == "__main__":
+    from data import get_fruit_df
+
+    dataframe = get_fruit_df()
+    get_scatter_plot_app(dataframe)
