@@ -7,9 +7,27 @@ from tabulate import tabulate
 def get_fruit_df() -> DataFrame:
     # Dicionário para criar um DataFrame
     fruit_data = {
-        "Fruit": ["Apple", "Banana", "Orange", "Grapes", "Pinapple", "Mango", "Kiwi", "Strawberry"],
-        "Color": ["Red", "Yellow", "Orange", "Green", "Yellow", "Yellow", "Brown", "Red"],
-        "Taste": ["Sweet", "Sweet", "Sweet", "Sweet", "Sweet", "Sweet", "Sweet", "Sweet"],
+        "Fruit": [
+            "Apple",
+            "Banana",
+            "Orange",
+            "Grapes",
+            "Pinapple",
+            "Mango",
+            "Kiwi",
+            "Strawberry",
+        ],
+        "Color": [
+            "Red",
+            "Yellow",
+            "Orange",
+            "Green",
+            "Yellow",
+            "Yellow",
+            "Brown",
+            "Red",
+        ],
+        "Taste": ["Sweet", "Sweet", "Sour", "Sweet", "Sweet", "Sweet", "Sour", "Sweet"],
         "Quantity": [15, 25, 15, 25, 30, 20, 15, 30],
         "Price": [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0],
     }

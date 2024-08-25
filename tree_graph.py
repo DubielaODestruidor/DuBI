@@ -35,6 +35,13 @@ def get_tree_graph_app(dataframe):
         children=[
             get_tree_graph(dataframe),
         ],
+        style={
+            "width": "100vw",
+            "height": "100vh",
+            "display": "flex",
+            "justifyContent": "center",
+            "alignItems": "center",
+        },
     )
 
     url = "http://127.0.0.1:8050/"

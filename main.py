@@ -4,6 +4,8 @@ from bar_chart import get_bar_chart_app
 from pizza_chart import get_pizza_chart_app
 from tree_graph import get_tree_graph_app
 from scatter_plot import get_scatter_plot_app
+from dashboard import get_dashboard_app
+from tabulate import tabulate
 
 
 def center_text_with_dashes(text, total_width):
@@ -25,6 +27,7 @@ def menu():
         "Gráfico de árvores",
         "Gráfico de dispersão",
         "Dashboard",
+        "Base de dados",
         "Sair",
     ]
 
@@ -48,7 +51,9 @@ def menu():
     elif "Gráfico de dispersão" in choice:
         get_scatter_plot_app(dataframe=get_fruit_df())
     elif "Dashboard" in choice:
-        print("TODO: Implementar dashboard")
+        get_dashboard_app(dataframe=get_fruit_df())
+    elif "Base de dados" in choice:
+        print(tabulate(get_fruit_df(), headers="keys", tablefmt="pretty"))
     elif "Sair" in choice:
         print("Até mais!")
         exit()

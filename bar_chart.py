@@ -49,6 +49,13 @@ def get_bar_chart_app(dataframe):
         children=[
             get_bar_chart(dataframe),
         ],
+        style={
+            "width": "100vw",
+            "height": "100vh",
+            "display": "flex",
+            "justifyContent": "center",
+            "alignItems": "center",
+        },
     )
 
     url = "http://127.0.0.1:8050/"

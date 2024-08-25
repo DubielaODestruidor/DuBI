@@ -13,6 +13,7 @@ def get_scatter_plot(dataframe) -> dcc.Graph:
                     "name": "Price",
                     "x": dataframe["Quantity"],
                     "y": dataframe["Price"],
+                    "text": dataframe["Fruit"],
                     "marker": {
                         "color": dataframe["Price"],
                         "colorscale": "Viridis",
@@ -50,6 +51,13 @@ def get_scatter_plot_app(dataframe):
         children=[
             get_scatter_plot(dataframe),
         ],
+        style={
+            "width": "100vw",
+            "height": "100vh",
+            "display": "flex",
+            "justifyContent": "center",
+            "alignItems": "center",
+        },
     )
 
     url = "http://127.0.0.1:8050/"
