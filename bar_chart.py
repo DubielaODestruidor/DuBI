@@ -8,6 +8,7 @@ def get_bar_chart(dataframe) -> dcc.Graph:
         figure={
             "data": [
                 {
+                    # Define o tipo de gráfico e suas propriedades
                     "type": "bar",
                     "name": "Price",
                     "x": dataframe["Fruit"],
@@ -42,6 +43,7 @@ def get_bar_chart(dataframe) -> dcc.Graph:
     )
 
 
+# Função que cria um aplicativo Dash com o gráfico de barras
 def get_bar_chart_app(dataframe):
     app = Dash(__name__)
 
@@ -58,11 +60,13 @@ def get_bar_chart_app(dataframe):
         },
     )
 
+    # Abre o navegador com o aplicativo, na porta padrão usado pelo Dash
     url = "http://127.0.0.1:8050/"
     webbrowser.open(url)
     app.run_server(debug=True, use_reloader=False)
 
 
+# Executa o aplicativo quando script é chamado como principal
 if __name__ == "__main__":
     from data import get_fruit_df
 

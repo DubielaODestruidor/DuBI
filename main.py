@@ -31,7 +31,7 @@ def center_figlet_text(figlet_text):
 
 
 def menu():
-    header = pyfiglet.figlet_format("DuBI", font="Standard")
+    header = pyfiglet.figlet_format("DuBI")
     centered_header = center_figlet_text(header)
     print("\n" + centered_header + "\n")
 
