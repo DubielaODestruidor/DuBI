@@ -2,7 +2,7 @@ from dash import dcc, html, Dash
 import webbrowser
 
 
-def get_bar_chart(dataframe) -> dcc.Graph:
+def get_bar_chart(data) -> dcc.Graph:
     return dcc.Graph(
         id="bar-chart",
         figure={
@@ -11,10 +11,10 @@ def get_bar_chart(dataframe) -> dcc.Graph:
                     # Define o tipo de gráfico e suas propriedades
                     "type": "bar",
                     "name": "Price",
-                    "x": dataframe["Fruit"],
-                    "y": dataframe["Price"],
+                    "x": data["Fruit"],
+                    "y": data["Price"],
                     "marker": {
-                        "color": dataframe["Price"],
+                        "color": data["Price"],
                         "colorscale": "Rainbow",
                     },
                 },
@@ -44,12 +44,12 @@ def get_bar_chart(dataframe) -> dcc.Graph:
 
 
 # Função que cria um aplicativo Dash com o gráfico de barras
-def get_bar_chart_app(dataframe):
+def get_bar_chart_app(data):
     app = Dash(__name__)
 
     app.layout = html.Div(
         children=[
-            get_bar_chart(dataframe),
+            get_bar_chart(data),
         ],
         style={
             "width": "100vw",

@@ -2,7 +2,7 @@ from dash import dcc, html, Dash
 import webbrowser
 
 
-def get_scatter_plot(dataframe) -> dcc.Graph:
+def get_scatter_plot(data) -> dcc.Graph:
     return dcc.Graph(
         id="scatter-plot",
         figure={
@@ -11,11 +11,11 @@ def get_scatter_plot(dataframe) -> dcc.Graph:
                     "type": "scatter",
                     "mode": "markers",
                     "name": "Price",
-                    "x": dataframe["Quantity"],
-                    "y": dataframe["Price"],
-                    "text": dataframe["Fruit"],
+                    "x": data["Quantity"],
+                    "y": data["Price"],
+                    "text": data["Fruit"],
                     "marker": {
-                        "color": dataframe["Price"],
+                        "color": data["Price"],
                         "colorscale": "Viridis",
                     },
                 },
@@ -44,12 +44,12 @@ def get_scatter_plot(dataframe) -> dcc.Graph:
     )
 
 
-def get_scatter_plot_app(dataframe):
+def get_scatter_plot_app(data):
     app = Dash(__name__)
 
     app.layout = html.Div(
         children=[
-            get_scatter_plot(dataframe),
+            get_scatter_plot(data),
         ],
         style={
             "width": "100vw",

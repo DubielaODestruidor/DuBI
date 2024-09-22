@@ -2,18 +2,18 @@ from dash import dcc, html, Dash
 import webbrowser
 
 
-def get_tree_graph(dataframe) -> dcc.Graph:
+def get_tree_graph(data) -> dcc.Graph:
     return dcc.Graph(
         id="tree-graph",
         figure={
             "data": [
                 {
                     "type": "treemap",
-                    "labels": dataframe["Fruit"],
-                    "parents": [""] * len(dataframe),
-                    "values": dataframe["Price"],
+                    "labels": data["Fruit"],
+                    "parents": [""] * len(data),
+                    "values": data["Price"],
                     "marker": {
-                        "color": dataframe["Price"],
+                        "color": data["Price"],
                         "colorscale": "Rainbow",
                     },
                 },

@@ -2,7 +2,7 @@ from dash import dcc, html, Dash
 import webbrowser
 
 
-def get_pizza_chart(dataframe) -> dcc.Graph:
+def get_pizza_chart(data) -> dcc.Graph:
     return dcc.Graph(
         id="pie-chart",
         figure={
@@ -10,8 +10,8 @@ def get_pizza_chart(dataframe) -> dcc.Graph:
                 {
                     "type": "pie",
                     "name": "Price",
-                    "values": dataframe.iloc[:, 3],
-                    "labels": dataframe.iloc[:, 0],
+                    "values": data.iloc[:, 3],
+                    "labels": data.iloc[:, 0],
                 },
             ],
             "layout": {

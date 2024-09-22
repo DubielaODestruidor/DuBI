@@ -13,7 +13,7 @@ def get_fruit_df() -> DataFrame:
             "Orange",
             "Orange",
             "Grapes",
-            "Pinapple",
+            "Pineapple",
             "Mango",
             "Kiwi",
             "Strawberry",

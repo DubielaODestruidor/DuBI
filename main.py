@@ -59,13 +59,13 @@ def menu():
     ).execute()
 
     if "Gráfico de barras" in choice:
-        get_bar_chart_app(dataframe=get_fruit_df())
+        get_bar_chart_app(data=get_fruit_df())
     elif "Gráfico de pizza" in choice:
         get_pizza_chart_app(dataframe=get_fruit_df())
     elif "Gráfico de árvores" in choice:
         get_tree_graph_app(dataframe=get_fruit_df())
     elif "Gráfico de dispersão" in choice:
-        get_scatter_plot_app(dataframe=get_fruit_df())
+        get_scatter_plot_app(data=get_fruit_df())
     elif "Dashboard" in choice:
         get_dashboard_app(dataframe=get_fruit_df())
     elif "Base de dados" in choice:

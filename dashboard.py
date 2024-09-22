@@ -30,7 +30,7 @@ def get_dashboard_app(dataframe):
                             "marginTop": "10px",
                         },
                     ),
-                    get_bar_chart(dataframe=dataframe),
+                    get_bar_chart(data=dataframe),
                 ],
                 style={
                     "width": "40%",
@@ -44,7 +44,7 @@ def get_dashboard_app(dataframe):
                             "marginTop": "10px",
                         },
                     ),
-                    get_pizza_chart(dataframe=dataframe),
+                    get_pizza_chart(data=dataframe),
                 ],
                 style={
                     "width": "40%",
@@ -58,7 +58,7 @@ def get_dashboard_app(dataframe):
                             "marginTop": "20px",
                         },
                     ),
-                    get_tree_graph(dataframe=dataframe),
+                    get_tree_graph(data=dataframe),
                 ],
                 style={
                     "width": "40%",
@@ -72,7 +72,7 @@ def get_dashboard_app(dataframe):
                             "marginTop": "20px",
                         },
                     ),
-                    get_scatter_plot(dataframe=dataframe),
+                    get_scatter_plot(data=dataframe),
                 ],
                 style={
                     "width": "40%",
