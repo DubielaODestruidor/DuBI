@@ -6,7 +6,7 @@ from tree_graph import get_tree_graph
 import webbrowser
 
 
-def get_dashboard_app(dataframe):
+def get_dashboard_app(data):
     app = Dash(__name__)
 
     app.layout = html.Div(
@@ -30,7 +30,7 @@ def get_dashboard_app(dataframe):
                             "marginTop": "10px",
                         },
                     ),
-                    get_bar_chart(data=dataframe),
+                    get_bar_chart(data=data),
                 ],
                 style={
                     "width": "40%",
@@ -44,7 +44,7 @@ def get_dashboard_app(dataframe):
                             "marginTop": "10px",
                         },
                     ),
-                    get_pizza_chart(data=dataframe),
+                    get_pizza_chart(data=data),
                 ],
                 style={
                     "width": "40%",
@@ -58,7 +58,7 @@ def get_dashboard_app(dataframe):
                             "marginTop": "20px",
                         },
                     ),
-                    get_tree_graph(data=dataframe),
+                    get_tree_graph(data=data),
                 ],
                 style={
                     "width": "40%",
@@ -72,7 +72,7 @@ def get_dashboard_app(dataframe):
                             "marginTop": "20px",
                         },
                     ),
-                    get_scatter_plot(data=dataframe),
+                    get_scatter_plot(data=data),
                 ],
                 style={
                     "width": "40%",

@@ -24,12 +24,12 @@ def get_pizza_chart(data) -> dcc.Graph:
     )
 
 
-def get_pizza_chart_app(dataframe):
+def get_pizza_chart_app(data):
     app = Dash(__name__)
 
     app.layout = html.Div(
         children=[
-            get_pizza_chart(dataframe),
+            get_pizza_chart(data),
         ],
         style={
             "width": "100vw",

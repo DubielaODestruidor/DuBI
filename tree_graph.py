@@ -28,12 +28,12 @@ def get_tree_graph(data) -> dcc.Graph:
     )
 
 
-def get_tree_graph_app(dataframe):
+def get_tree_graph_app(data):
     app = Dash(__name__)
 
     app.layout = html.Div(
         children=[
-            get_tree_graph(dataframe),
+            get_tree_graph(data),
         ],
         style={
             "width": "100vw",
