@@ -1,9 +1,11 @@
+import webbrowser
+
 from dash import Dash, html
+
 from bar_chart import get_bar_chart
 from pizza_chart import get_pizza_chart
 from scatter_plot import get_scatter_plot
 from tree_graph import get_tree_graph
-import webbrowser
 
 
 def get_dashboard_app(data):

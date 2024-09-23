@@ -1,5 +1,6 @@
-from dash import dcc, html, Dash
 import webbrowser
+
+from dash import Dash, dcc, html
 
 
 def get_tree_graph(data) -> dcc.Graph:
