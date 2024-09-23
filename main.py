@@ -23,11 +23,15 @@ def center_menu_options(text):
 
 def center_figlet_text(figlet_text):
     lines = figlet_text.split("\n")
-    terminal_width = os.get_terminal_size().columns
-    centered_lines = [
-        line.center(terminal_width) for line in lines if line.strip() != ""
-    ]
-    return "\n".join(centered_lines)
+    try:
+        terminal_width = os.get_terminal_size().columns
+        centered_lines = [
+            line.center(terminal_width) for line in lines if line.strip() != ""
+        ]
+        return "\n".join(centered_lines)
+    except OSError:
+        print("Please run this script in a terminal")
+        exit()
 
 
 def menu():
